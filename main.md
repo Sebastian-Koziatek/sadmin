@@ -175,7 +175,32 @@ Preparing to unpack .../dialog_1.3-20201126-1_armhf.deb ...
 Unpacking dialog (1.3-20201126-1) ...
 Setting up dialog (1.3-20201126-1) ...
 ----------------------------------------------------------------------
+
 ```
+Wybierz `OK`
+
+![Install](/pictures/install_1.png)
+
+W tym kroku jesteśmy informowani o konieczności przypisania stałego adresu IP. Serwer DNS powinien mieć stały i zmiennienny adres IP aby zapobiec potencjalnym problemom w przyszłości, więc instalacja PiHole prosi o albo ręczne skonfigurowanie adresu IP dla tej isntancji albo konfigurację po stronie serwera DHCP. Wybierz opcję `Continue`.  
+
+![Install](/pictures/install_2.png)
+
+Jesteśmy pytani o chęć instalacji interfejsu webowego. Wybierz opcję `Yes`, interfejs sieciowy będzie nam potrzebny a w dalszej częsci artykułu umówimy sobie szczegółowo jego opcje.
+
+![Install](/pictures/install_3.png)
+
+Instalator pyta czy jesteśmy zainteresowani właczeniem logowania wszystkich zapytań do naszego serwera. Wybieramy opcje `Yes`. Jeżeli twoje instacje są ubogie w miejsce na dysku czy karcie pamięci, lub nie chcesz posiadać pełnego logowania możesz tu wybrać ocje `No`, jednak polecam zbieranie logów. 
+
+![Install](/pictures/install_4.png)
+
+Do obsługi interfejsu sieciowego potrzebujemy odpowiedniego oprogramowania - silnika stron internetowych oraz kilku dodatkowych zależności (np. modułu PHP), zatwierdz ich instalację wybierająć `Yes`. 
+
+![Install](/pictures/install_5.png)
+
+Mamy do wyboru publiczny serwer DNS. Możemy wybrać dowolny, taka konfiguracja w naszym przypadku jest tylko na potrzeby instalacji ponieważ docelowo będziemy korzystali z konfiguracji `unbound` w ramach której naszym serwerem DNS będzie nasza instacja PiHole. 
+
+![Install](/pictures/install_6.png)
+
 ## Interfejs webowy
 Wejdźmy do naszego interfejsu webowego: 
 
