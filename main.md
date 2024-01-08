@@ -4,8 +4,14 @@
 
 Oprogramowanie `Pi-hole` to rodzaj serwera proxy DNS, który działa jako  instancja filtrująca ruch sieciowy poprzez blokowanie reklam i innych niechcianych treści internetowych. Jest to narzędzie typu open-source, które działa głównie jako system blokujący zapytania o adresy internetowe wykorzystywane przez serwisy reklamowe i śledzące użytkowników.
 
+
+
 Główną funkcjonalnością Pi-hole jest wykorzystanie listy czarnych adresów (blacklist) w celu zapobiegania dostępowi do adresów URL i serwerów, które są znane z dostarczania reklam, śledzenia użytkowników lub zawierania potencjalnie szkodliwych treści. Jako serwer proxy DNS, Pi-hole działa na etapie translacji nazw domenowych na adresy IP, co umożliwia mu wykrycie i zablokowanie żądanych adresów internetowych zawierających treści reklamowe, śledzące lub potencjalnie szkodliwe. Centralnym elementu systemu jest `Gravity` które jest mechanizmem używanym przez Pi-hole do tworzenia, aktualizowania i zarządzania black listą.
 W przedstawionej konfiguracji Gravity będzie jednym z elementów które będziemy sychronizować między instacjami PiHole w konfiugracji HA. Będziemy do tego używac oprogramowania Gravity sync. 
+
+<p align="center">
+<img src="https://sadmin.pl/pictures/pi-hole-ultimate/Pi-Hole-DNS.png?raw=true" alt="Pi-Hole"/>
+</p>
 
 W ramach naszej konfiguracji będziemy również korzystać z fukcji która nazywa się `unbound`. Jest to funkcja rozwiązywania nazw (resolver) działającym jako serwer DNS, jest ona jednym z wyborów do implementacji funkcji serwera DNS, który można zintegrować z Pi-hole w celu poprawy prywatności, bezpieczeństwa i wydajności sieci. Na czym to polega? W skrócie, Unbound jest serwerem DNS zapewniającym lokalne rozwiązywanie nazw, zabezpieczenia komunikacji DNS, buforowanie oraz wysoką wydajność. Co taka konfiguracja nam daje?
 
@@ -16,6 +22,13 @@ W ramach naszej konfiguracji będziemy również korzystać z fukcji która nazy
     3. Buforowanie: Unbound może buforować odpowiedzi DNS, czyli przechowywać lokalnie wyniki wcześniej rozwiązanych zapytań. Dzięki temu, gdy jest ponownie wysyłane to samo zapytanie, może szybko zwrócić odpowiedź, bez konieczności ponownego kierowania się do zewnętrznych serwerów DNS.
 
     4. Wydajność: Jest projektowany z myślą o wydajności i efektywności. Może obsługiwać duże ilości zapytań DNS równocześnie, co jest istotne w sieciach o dużej aktywności.
+
+
+<p align="center">
+<img src="https://sadmin.pl/pictures/pi-hole-ultimate/Pi-Hole-DNS-nopublicdns.png?raw=true" alt="Pi-Hole"/>
+</p>
+
+
 ___
 ### Konfiguracja HA (High availability)
 High availability (wysoka dostępność) jest terminem odnoszącym się do architektury lub konfiguracji systemów, które są zaprojektowane w taki sposób, aby zapewnić nieprzerwane działanie usług lub aplikacji nawet w przypadku awarii sprzętu, oprogramowania lub innego rodzaju zakłóceń.
@@ -26,7 +39,9 @@ W prezentowanym rozwiązaniu zostanie użyta wirtualna maszyna hostowana na domo
 
 ### Schemat struktury:
 
-![Schemat](/pictures/PiHole+HAv2.png)
+<p align="center">
+<img src="https://sadmin.pl/pictures/pi-hole-ultimate/PiHole+HAv2.png?raw=true" alt="Instalacja Pi-Hole"/>
+</p>
 
 ___
 
@@ -179,7 +194,9 @@ Setting up dialog (1.3-20201126-1) ...
 ```
 Wybierz `OK`
 
-![Install](/pictures/install_1.png)
+<p align="center">
+<img src="https://sadmin.pl/pictures/pi-hole-ultimate/install_1.png?raw=true" alt="Instalacja Pi-Hole"/>
+</p>
 
 W tym kroku jesteśmy informowani o konieczności przypisania stałego adresu IP. Serwer DNS powinien mieć stały i zmiennienny adres IP aby zapobiec potencjalnym problemom w przyszłości, więc instalacja PiHole prosi o albo ręczne skonfigurowanie adresu IP dla tej isntancji albo konfigurację po stronie serwera DHCP. Wybierz opcję `Continue`.  
 
@@ -199,7 +216,7 @@ Do obsługi interfejsu sieciowego potrzebujemy odpowiedniego oprogramowania - si
 
 Mamy do wyboru publiczny serwer DNS. Możemy wybrać dowolny, taka konfiguracja w naszym przypadku jest tylko na potrzeby instalacji ponieważ docelowo będziemy korzystali z konfiguracji `unbound` w ramach której naszym serwerem DNS będzie nasza instacja PiHole. 
 
-![Install](/pictures/install_6.png)
+<p align="center">![Install](/pictures/install_6.png)
 
 ## Interfejs webowy
 Wejdźmy do naszego interfejsu webowego: 
